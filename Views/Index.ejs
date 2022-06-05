@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Pokemon App!</title>
+    <title> <%= pageTitle %>   </title>
 </head>
 <body>
-    <h1>See all the Pokemon!</h1>
+    <h1> <%= pageHeader %> </h1>
     <a href="/">HomePage</a>
-    <a href="/pokemon/x"></a>
+    <br>
+    <br>
+    <a href="/pokemon/new">Create new pokemon</a>
     <ul>
-        <% data.map( (pokemon, index) => { %>
-            <img src=<%=pokemon.img[0]%> />
-            <li>
-                <%= pokemon.name.replace(/\w/, c => c.toUpperCase()) %>
-                
-            </li>
-        <% })%>
+
+        <% pokemon.map( (pokemon) => { %>
+            <li><%=pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)%></li>
+
+            <a href="/pokemon/<%= pokemon._id %>">Click Here</a>
+
+        <% }) %>
+    
     </ul>
+    
+   
 </body>
 </html>
